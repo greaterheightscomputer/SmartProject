@@ -1,0 +1,142 @@
+CREATE DATABASE SmartAcceDB
+USE SmartAcceDB
+
+
+CREATE TABLE Products
+(
+  product_id VARCHAR(50) PRIMARY KEY,
+  product_name VARCHAR(100) NOT NULL,
+  product_type VARCHAR(150),
+  unit_price DECIMAL(10,2),
+  discount_percent INT,
+  new_unit_price DECIMAL(10,2),
+  qty_in_stock INT NOT NULL,
+  picture VARCHAR(200),  
+  creation_date DATETIME
+)
+
+SELECT * FROM Products
+
+CREATE TABLE User_Roles
+(
+user_role_id VARCHAR(20) PRIMARY KEY,
+user_names VARCHAR(100) NOT NULL,
+user_status INT NOT NULL
+)
+
+SELECT * FROM User_Roles
+
+CREATE TABLE Users
+(
+user_ids VARCHAR(50) PRIMARY KEY,
+first_name VARCHAR(100) NOT NULL,
+last_name VARCHAR(100) NOT NULL,
+pass_word VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+gender CHAR(10) NOT NULL,
+phone VARCHAR(50),
+user_address VARCHAR(150) NOT NULL,
+user_role_id VARCHAR(20) REFERENCES User_Roles(user_role_id),
+user_status INT,
+creation_date DATETIME 
+)
+
+SELECT * FROM users
+
+CREATE TABLE OrderDetails
+(
+order_id VARCHAR(200),
+quantity INT NOT NULL,
+description VARCHAR(100) NOT NULL,
+price DECIMAL(10,2),
+amount DECIMAL(10,2),
+size INT NOT NULL,
+user_ids VARCHAR(20) REFERENCES Users(user_ids),
+session_id VARCHAR(150),
+created_date DATETIME
+);
+
+
+CREATE TABLE orders
+(       
+order_code VARCHAR(100),
+order_item VARCHAR(150), 
+unit_price DECIMAL(10,2), 
+qty_sold INT NOT NULL, 
+amount DECIMAL(10,2),
+size INT NOT NULL, 
+user_ids VARCHAR(20) REFERENCES Users(user_ids), 
+sessionId VARCHAR(100), 
+order_date DATETIME
+);
+
+
+CREATE TABLE OrdersQty
+(       
+order_code VARCHAR(100),
+quantity INT NOT NULL, 
+user_ids VARCHAR(20) REFERENCES Users(user_ids), 
+sessionId VARCHAR(100), 
+order_date DATETIME
+);
+
+
+CREATE TABLE Payments
+(       
+pay_id VARCHAR(50) PRIMARY KEY,
+credit_card_type VARCHAR(100) NOT NULL,
+credit_card_no INT NOT NULL,
+credit_card_expiration_date DATETIME,
+user_ids VARCHAR(20) REFERENCES Users(user_ids),
+creation_date DATETIME,
+delivery_date DATETIME        
+)
+
+CREATE TABLE Comments
+(       
+user_ids VARCHAR(20) REFERENCES Users(user_ids),
+comments VARCHAR(500)NOT NULL,
+creation_date DATETIME        
+);
+
+CREATE TABLE autoId
+(
+ id CHAR(10) PRIMARY KEY,
+ tableName VARCHAR(50),
+ STATUS INT
+);
+
+INSERT INTO autoId VALUES ('001','Orders',1);
+INSERT INTO autoId VALUES ('002','OrdersQty',1);
+
+
+DELETE FROM orders WHERE qty_sold="1";
+
+INSERT INTO Users VALUES('khadijat@yahoo.com', 'Khadijat','Ade','1234','khadijat@yahoo.com','female', '0809099','24B Pike','UR001', '1','2018-02-05');
+
+INSERT INTO User_Roles VALUES('UR001','Administrator','0');
+INSERT INTO User_Roles VALUES('UR002','Customer','0');
+SELECT * FROM user_roles
+
+SELECT SUM(amount) FROM orders WHERE user_ids="0001" AND sessionId="FDC0E23F4965B1D41583B427B6B04923"; 
+
+SELECT SUM(amount)AS amount FROM orders WHERE user_ids="0001" AND sessionId="FDC0E23F4965B1D41583B427B6B04923"
+
+SELECT qty_sold,order_item, size, unit_price, amount FROM orders WHERE user_ids="0001" AND sessionId="C90884B55915D2F80F4F111BBD7BC641"
+
+UPDATE orders SET qty_sold="8" WHERE order_id = "FB001" AND sessionId="F40903829A9AF9EC009F74E8BB84C20B"
+
+UPDATE orders SET qty_sold = (SELECT quantity FROM ordersqty WHERE qty_sold_id='2'), amount =(qty_sold * unit_price) WHERE order_id=2 AND sessionId='789EDBEBD6461EFC71CD31EE9753881B';
+UPDATE orders SET amount=(qty_sold * unit_price) WHERE order_id='1';
+
+SELECT * FROM OrderDetails
+DELETE FROM orderdetails
+DELETE FROM orderdetails WHERE order_id='pf01' AND size='30' AND user_ids='0001' AND session_id='5E09C4ED1E7E01CB7A6AB972967308FD'
+SELECT SUM(amount) AS amount FROM OrderDetails WHERE user_ids = '0001' AND session_id = '2A0E482E4F9B3ABA02915BDCABDF4D2D';
+SELECT SUM(amount) AS amount FROM OrderDetails WHERE user_ids = '' AND session_id = '';
+
+SELECT * FROM users
+SELECT * FROM products
+SELECT * FROM comments
+
+SELECT DISTINCT product_type FROM Products

@@ -1,0 +1,37 @@
+article, aside, header, footer, section, nav, figure{
+	display: block;
+}
+nav{
+    width: 200px;    
+    height: 450px;
+    float: left;     
+    background-image: url("../image/pm-bg1_4.jpg");     
+    font-family: Verdana, Arial;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;    
+}
+nav ul li {
+	float: left;	
+}
+nav ul li a {
+    display: block;
+    width: 170.7px;
+    text-align: left;
+    padding: 15px 0;
+    text-decoration: none;
+    //color: white;    
+    //background-color: black;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+nav ul li a:hover{	   		
+	font-style: italic;
+	color: red; 
+}
+

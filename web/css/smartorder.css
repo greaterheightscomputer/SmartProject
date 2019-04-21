@@ -1,0 +1,46 @@
+article, aside, header, footer, section, nav, figure{
+	display: block;
+}
+
+body{
+    /**background-image: url("../image/pm-bg1_1.jpg");**/
+    margin: 20px 30px auto;
+    font-family: Verdana, Arial;
+    font-size: 15px;
+}
+
+section{    
+    float: left;    
+    -moz-column-count: 4;
+    -webkit-column-count:4;
+     column-count: 4;
+    -webkit-column-gap: 5px;    
+}
+
+#divOuter{    
+    margin: 90px auto;
+    border: 2px solid blue;    
+}
+
+#tableproduct{
+    text-align: left;
+    font-size: 18px;
+    margin: 0px auto;
+    
+}
+.orderbutton{
+    width: 250px;
+    height: 30px;
+    border-radius: 2px 10px;
+    box-shadow: 2px 2px 2px 2px green;
+    border: 1px solid green;
+    color: green;
+    font-size: 15px;
+}
+#sectiontable{
+    margin: 0px auto;
+}
+#accessories{
+    margin: 10px auto;
+}
+

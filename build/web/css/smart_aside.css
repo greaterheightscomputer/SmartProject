@@ -1,0 +1,22 @@
+article, aside, header, footer, section, nav, figure{
+	display: block;
+}
+*{margin:0px;
+padding:0px;}
+
+/*html{
+    background-color:lightsteelblue;
+}*/
+
+aside{
+    width: 240px;    
+    height: 450px;
+    float: right;     
+    background-color: red;
+    margin-right: 10px;
+    
+}
+
+
+		
+

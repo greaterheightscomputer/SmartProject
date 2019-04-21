@@ -1,0 +1,62 @@
+article, aside, header, footer, section, nav, figure{
+	display: block;
+}
+*{margin:0px;
+padding:0px;}
+
+html{
+    background-image: url("../image/pm-bg1_4.jpg");   
+}
+
+body{
+    width: 1300px;
+    height: 636px;
+    border: 3px solid black;
+    background-color: white;
+    margin: 10px auto;
+    background-image: url("../image/pm-bg1_4.jpg");    
+    font-family: Verdana, Arial;
+}
+
+aside{
+    width: 440px;    
+    height: 636px;
+    float: left;     
+    background-color: blue;
+}
+
+section{       
+    //background-color: blue;
+    float: left;
+    height: 636px; 
+}
+section div{
+    width: 410px;    
+    height: 200px;
+    margin: 200px auto;
+    border: 2px solid blue;
+}
+div img{
+    float: left;
+    padding: 25px;
+}
+div input{
+    margin: 5px;
+    padding-top: 5px;
+}
+div label{
+    margin: 0px 10px 0px 5px;        
+}
+
+article{
+    width: 400px;    
+    height: 636px;
+    float: right;     
+    background-color: blue;
+}
+
+footer{
+    clear: both;
+    border-top: 2px solid #efc900;     
+    background-color: navy;
+}

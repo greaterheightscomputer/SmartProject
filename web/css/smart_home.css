@@ -1,0 +1,47 @@
+article, aside, header, footer, section, nav, figure{
+	display: block;
+}
+*{margin:0px;
+padding:0px;}
+
+
+body{    
+    //background-image: url("../image/pm-bg1_4.jpg");   
+    width: 1350px;
+    height: 636px;
+    font-family: Verdana, Arial;
+    margin: 0px auto;	
+}
+header{      
+    width: 1340px;
+    height: 160px;                    
+    
+}
+
+nav{
+    width: 200px;
+    background-color: black;         
+    height: 450px;
+}
+
+section{       
+    width: 500px;    
+    height: 440px;
+    background-color: yellow;
+    float: left;     
+}
+
+aside{
+    width: 200px;    
+    height: 440px;
+    float: right;     
+    background-color: red;
+}
+
+
+footer{
+	clear: both;
+	background-color: black;		
+	color: white;
+	text-align: center;
+}

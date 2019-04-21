@@ -1,0 +1,18 @@
+article, aside, header, footer, section, nav, figure{
+	display: block;
+}
+
+body{
+    background-image: url("../image/pm-bg1_3.jpg");
+    margin: 70px 180px auto;
+    font-family: Verdana, Arial;
+}
+
+div{
+    border:2px solid blue;
+    width: 700px;
+    padding: 20px 30px;
+    border-collapse: collapse;
+}
+
+
